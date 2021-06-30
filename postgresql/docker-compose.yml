@@ -1,0 +1,32 @@
+version: "3.7"
+
+services:
+  db:
+    image: postgres
+    restart: always
+    environment: 
+      POSTGRES_DB: postgres
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: secret
+      PGDATA: /var/lib/postgresql/data
+    volumes:
+      - .\data\postgresql:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+  pgadmin:
+    image: dpage/pgadmin4
+    restart: always
+    environment: 
+      PGADMIN_DEFAULT_EMAIL: admin@postgresql.com
+      PGADMIN_DEFAULT_PASSWORD: secret
+      PGADMIN_LISTEN_PORT: 80
+    volumes:
+      - pga4volume:/var/lib/pgadmin
+    ports:
+      - "8888:80"
+    links:
+      - "db:pgsql-server"
+volumes:
+    pga4volume:
+        external: true

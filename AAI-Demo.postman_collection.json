@@ -1,0 +1,248 @@
+{
+	"info": {
+		"_postman_id": "3f19842f-e9b7-469a-a3e7-5cec43e34040",
+		"name": "AAI-Demo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Register User",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"gvigelette\",\r\n    \"password\": \"Pass123\",\r\n    \"first_name\": \"George\",\r\n    \"last_name\": \"Tease\",\r\n    \"email\": \"george@postman.com\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/register/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"register",
+						""
+					]
+				},
+				"description": "Register User using backend reset API"
+			},
+			"response": []
+		},
+		{
+			"name": "Login User",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\" : \"George\",\r\n    \"password\" : \"pass123\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/login/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"login",
+						""
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null,
+							"disabled": true
+						}
+					]
+				},
+				"description": "Login user and get token"
+			},
+			"response": []
+		},
+		{
+			"name": "Test Security",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:5000/api/user/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"user",
+						""
+					]
+				},
+				"description": "Make call without valid token to test access"
+			},
+			"response": []
+		},
+		{
+			"name": "Get User",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Token e158a6c881921d29d548e151943e08f05a5f00c33547e83fd3b8599b9318da2a",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:5000/api/user/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"user",
+						""
+					]
+				},
+				"description": "Make call without valid token to test access"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Group",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Token 797716e891ed7be8924628f27c444bd2151572863c595ef89a4d81ab26828aa7",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:5000/auth/group/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"auth",
+						"group",
+						""
+					]
+				},
+				"description": "Make call without valid token to test access"
+			},
+			"response": []
+		},
+		{
+			"name": "Upload File",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token e7139c8b02d9d779a1c003ce3973dc9debfb9c90a06c7fa2960f666c6adb0af7",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "artId",
+							"value": "4",
+							"type": "text"
+						},
+						{
+							"key": "collectionId",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "artName",
+							"value": "test",
+							"type": "text"
+						},
+						{
+							"key": "artNotes",
+							"value": "notes",
+							"type": "text"
+						},
+						{
+							"key": "filelen",
+							"value": "1234",
+							"type": "text"
+						},
+						{
+							"key": "originalImage",
+							"type": "file",
+							"src": "/C:/Users/gvigelet/Pictures/picasso.png"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/art/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"art",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Art",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
+			},
+			"response": []
+		}
+	]
+}

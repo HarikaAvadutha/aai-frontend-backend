@@ -1,0 +1,23 @@
+name: aai-backend
+channels:
+  - defaults
+  - pypi
+dependencies:
+  - python=3.6
+  - pip==21.1.1
+  - pip:
+    - torchvision
+    - torchsummary
+    - gunicorn==20.1.0
+    - django==3.2.3
+    - django-cors-headers==3.7.0
+    - django-rest-knox==4.1.0
+    - djangorestframework==3.12.4
+    - simplejson==3.17.2
+    - django-users-api==0.1
+    - psycopg2==2.8.6
+    - pandas==1.1.5
+    - matplotlib==3.3.4
+    - seaborn==0.11.1
+    - scikit-learn==0.24.2
+    - scikit-image==0.17.2

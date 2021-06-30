@@ -54,6 +54,7 @@
     "react-svg": "^11.2.3",
     "react-tagsinput": "^3.19.0",
     "react-tooltip": "^4.2.13",
+    "react-webcam": "^5.2.4",
     "recharts": "^2.0.4",
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0",

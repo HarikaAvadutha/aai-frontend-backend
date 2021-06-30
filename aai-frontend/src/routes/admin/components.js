@@ -101,6 +101,8 @@ const ComponentRoute = () => {
       <Route path={`${path}/confirm`} component={Confirme} />
       <Route path={`${path}/menu`} component={Menu} />
       <Route path={`${path}/upload`} component={Upload} />
+      <Route path={`${path}/collection`} component={Upload} />
+      <Route path={`${path}/thank-you`} component={Upload} />
       <Route path={`${path}/drag`} component={DragDrop} />
       <Route exact path={`${path}/base`} component={DashboardBase} />
     </Switch>
